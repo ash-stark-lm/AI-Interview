@@ -24,8 +24,8 @@ Output: [0, 1]
 
 Constraints:
 - 2 <= nums.length <= 10^4
-- -1 <= nums[i] <= 10^9
-- -1 <= target <= 10^9
+- 1 <= nums[i] <= 10^9
+- 1 <= target <= 10^9
 - Exactly one valid answer exists
 - Cannot use the same element twice
 `
