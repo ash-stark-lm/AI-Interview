@@ -24,8 +24,8 @@ Output: [0, 1]
 
 Constraints:
 - 2 <= nums.length <= 10^4
-- -10^9 <= nums[i] <= 10^9
-- -10^9 <= target <= 10^9
+- -1 <= nums[i] <= 10^9
+- -1 <= target <= 10^9
 - Exactly one valid answer exists
 - Cannot use the same element twice
 `
@@ -50,10 +50,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
   const sendCodeUpdate = useRef(null)
 
   useEffect(() => {
-    // Create a debounced function to avoid sending too many updates
     sendCodeUpdate.current = debounce((code) => {
       if (isConnected && vapi) {
-        // Method 1: Try sending as a regular message
         vapi.send({
           type: 'add-message',
           message: {
@@ -62,7 +60,6 @@ vector<int> twoSum(vector<int>& nums, int target) {
           },
         })
 
-        // Method 2: Also try the context-update approach
         vapi.send({
           type: 'context-update',
           payload: {
@@ -78,7 +75,6 @@ vector<int> twoSum(vector<int>& nums, int target) {
     }, 10000) // 10 second debounce
   }, [isConnected, vapi, problemStatement])
 
-  // Initialize Monaco Editor
   useEffect(() => {
     if (containerRef.current) {
       editorRef.current = monaco.editor.create(containerRef.current, {
